@@ -2,9 +2,12 @@ name: LeetCode CI Test
 
 on:
   push:
-    branches: [main]
+    paths:
+      - 'problems/**'
+      - 'tests/**'
   pull_request:
-    branches: [main]
+      - 'problems/**'
+      - 'tests/**'
 
 jobs:
   build-and-test:
