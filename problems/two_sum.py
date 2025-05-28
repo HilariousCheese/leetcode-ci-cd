@@ -1,4 +1,4 @@
-def two_sum(self, nums, target):
+def two_sum( nums, target):
     dict = {}
     for i in range(len(nums)):
         complement = target - nums[i]
