@@ -23,7 +23,7 @@ This project helps me practice coding problems with continuous integration and a
 
 ---
 
-## Getting Started
+## CLI Support
 
 1. Clone this repo  
 2. Run tests locally with Docker:  
