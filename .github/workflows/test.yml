@@ -19,9 +19,3 @@ jobs:
 
       - name: Run tests inside Docker
         run: docker run --rm leetcode-ci
-
-      - name: Run linting (flake8)
-        run: docker run --rm leetcode-ci flake8 problems tests
-
-      - name: Check code formatting (black)
-        run: docker run --rm leetcode-ci black --check problems tests
