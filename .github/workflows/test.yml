@@ -7,27 +7,21 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
+      - name: Build Docker image
+        run: docker build -t leetcode-ci .
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: Run tests inside Docker
+        run: docker run --rm leetcode-ci
 
-    - name: Set PYTHONPATH
-      run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
+      - name: Run linting (flake8)
+        run: docker run --rm leetcode-ci flake8 problems tests
 
-    - name: Run tests
-      run: |
-        pytest tests/
-
+      - name: Check code formatting (black)
+        run: docker run --rm leetcode-ci black --check problems tests
