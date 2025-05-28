@@ -3,6 +3,6 @@ def two_sum( nums, target):
     for i in range(len(nums)):
         complement = target - nums[i]
         if complement in dict:
-            return [i, nums[complement]
+            return [i, nums[complement]]
         dict[nums[i]] = i
     return []
