@@ -1,0 +1,8 @@
+def two_sum(self, nums, target):
+    dict = {}
+    for i in range(len(nums)):
+        complement = target - nums[i]
+        if complement in dict:
+            return [i, nums[complement]
+        dict[nums[i]] = i
+    return []
